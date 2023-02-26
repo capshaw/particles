@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Particles &mdash; a simulation experiment</title>
+        <link rel="shortcut icon" type="image/png" href="img/icon.png" />
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="particleCanvas"></canvas>
+        <script src="particles.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            const displaySettings = new DisplaySettings()
+                .setCanvasId('particleCanvas')
+                .setCanvasHeight(window.innerHeight)
+                .setCanvasWidth(window.innerWidth);
+            const particleSettings = new ParticleSettings()
+                .setColors(['red', 'blue', 'green', 'purple', 'yellow', 'orange', 'pink', 'cyan'])
+                .setDrag(0.9)
+                .setMass(5)
+                /**
+                 * [Tuning notes]
+                 *
+                 * - 50 is really good
+                 * - 100 isn't bad
+                 * - 30 is good with 100 sight
+                 * - 40 is excellent with 100 sight
+                 */
+                .setPressureInflectionPoint(40)
+                /**
+                 * [Tuning notes]
+                 *
+                 * - 300 is good
+                 * - 100 is good with 30 inflection
+                 */
+                .setSight(100);
+            const simulationSettings = new SimulationSettings()
+                .setParticleCount(600)
+                .setParticleSettings(particleSettings)
+                .setEnvironmentHeight(displaySettings.canvasHeight)
+                .setEnvironmentWidth(displaySettings.canvasWidth);
+
+            const particleSimulation = new ParticleSimulation(displaySettings, simulationSettings);
+            particleSimulation.start();
+        </script>
+    </body>
+</html>
