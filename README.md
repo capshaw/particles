@@ -14,7 +14,7 @@ This simulation uses made-up abstractions—sometimes inspired by gravity, somet
 - Transformations of particles (A + B yields C)
 - Polarity
 - Chemistry
-- - Bonds
-- - Heat
-- - Reactions
+    - Bonds
+    - Heat
+    - Reactions
 - Death / war
