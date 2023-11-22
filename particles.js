@@ -243,7 +243,7 @@ class SimulationHandler {
     setupParticlesInitialState() {
         const numColors = this.simulationSettings.particleSettings.colors.length;
         for (var i = 0; i < this.simulationSettings.particleCount; i++) {
-            const colorIndex = Math.floor(Math.random() * (numColors - 1)) + 1;
+            const colorIndex = Math.floor(Math.random() * numColors);
             const particle = new Particle(
                 this.simulationSettings.particleSettings.colors[colorIndex],
                 this.simulationSettings.particleSettings.mass,
