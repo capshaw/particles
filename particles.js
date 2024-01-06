@@ -172,12 +172,19 @@ class CanvasHandler {
     constructor(displaySettings) {
         this.displaySettings = displaySettings;
         this.canvas = document.getElementById(this.displaySettings.canvasId);
+        const ratio = window.devicePixelRatio;
+
         if (this.displaySettings.canvasWidth) {
-            this.canvas.width = this.displaySettings.canvasWidth;
+            this.canvas.width = this.displaySettings.canvasWidth * ratio;
+            this.canvas.style.width = this.displaySettings.canvasWidth + "px";
         }
+
         if (this.displaySettings.canvasHeight) {
-            this.canvas.height = this.displaySettings.canvasHeight;
+            this.canvas.height = this.displaySettings.canvasHeight * ratio;
+            this.canvas.style.height = this.displaySettings.canvasHeight + "px";
         }
+
+        this.canvas.getContext("2d").scale(ratio, ratio);
         this.context = this.canvas.getContext('2d');
     }
 
